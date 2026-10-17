@@ -28,6 +28,7 @@ By completing these exercises, I developed the ability to retrieve and inspect d
 
 - SQL Server Management Studio (SSMS)
 - GitHub
+- Data with BARA ultimate course crush(youtube)
 
 ## Learning Outcome
 
