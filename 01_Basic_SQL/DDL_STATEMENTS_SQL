@@ -1,0 +1,371 @@
+CREATE,ALTER ,DROP AND TRUNCATING (DDL)
+
+============================================================
+---------CREATE TABLE STATEMENT----------
+============================================================
+
+Category:
+Data Definition Language (DDL)
+
+Purpose:
+The CREATE TABLE statement is used to create a new
+table in a database.
+
+A table is a structured collection of related data
+organized into rows and columns.
+
+============================================================
+BUSINESS SCENARIO
+============================================================
+
+A business needs a system to store customer
+information.
+
+A new table called Persons will be created to store:
+
+✓ Customer ID
+✓ First Name
+✓ Last Name
+✓ Country
+
+============================================================
+SQL STATEMENT
+============================================================
+*/
+
+CREATE TABLE Persons (
+    ID INT PRIMARY KEY,
+    First_Name VARCHAR(50) NOT NULL,
+    Last_Name VARCHAR(50) NOT NULL,
+    Country VARCHAR(50)
+);
+
+GO
+
+/*
+============================================================
+BREAKDOWN
+============================================================
+
+CREATE TABLE
+    Creates a new table in the database.
+
+Persons
+    Name of the table being created.
+
+ID INT PRIMARY KEY
+    Unique identifier for each record.
+
+First_Name VARCHAR(50)
+    Stores a customer's first name.
+
+Last_Name VARCHAR(50)
+    Stores a customer's last name.
+
+Country VARCHAR(50)
+    Stores the customer's country.
+
+NOT NULL
+    Ensures a value must be provided.
+
+PRIMARY KEY
+    Guarantees uniqueness for each record.
+
+============================================================
+EXAMPLE
+============================================================
+
+Persons Table
+
+ID   First_Name   Last_Name   Country
+-----------------------------------------
+1    John         Smith       South Africa
+2    Sarah        Jones       Namibia
+
+============================================================
+KEY TAKEAWAY
+============================================================
+
+CREATE TABLE is used to build the structure of a
+database table before any data can be stored.
+
+It defines:
+
+✓ Columns
+✓ Data Types
+✓ Constraints
+
+
+
+Question:
+What is the purpose of CREATE TABLE?
+
+Answer:
+CREATE TABLE is a DDL statement used to create a new
+database table and define its structure, including
+columns, data types, and constraints.
+
+============================================================
+SKILLS DEMONSTRATED
+============================================================
+
+✓ Data Definition Language (DDL)
+
+✓ Database Design Fundamentals
+
+✓ Table Creation
+
+✓ Constraint Implementation
+/*
+
+============================================================
+------ALTER TABLE STATEMENT-----
+============================================================
+
+Category:
+Data Definition Language (DDL)
+
+Purpose:
+The ALTER TABLE statement is used to modify the structure
+of an existing table without recreating it.
+
+Common Uses:
+- Add new columns
+- Remove columns
+- Modify column data types
+- Rename columns
+- Add or remove constraints
+
+============================================================
+BUSINESS SCENARIO
+============================================================
+
+The business now requires a phone number for every
+customer record stored in the Persons table.
+
+A new column named Phone will be added with the
+following requirements:
+
+✓ Maximum length of 15 characters
+✓ Cannot contain NULL values
+
+============================================================
+SQL STATEMENT
+============================================================
+*/
+
+ALTER TABLE Persons
+ADD Phone VARCHAR(15) NOT NULL;
+
+GO
+
+/*
+============================================================
+BREAKDOWN
+============================================================
+
+ALTER TABLE
+    Specifies the existing table to be modified.
+
+Persons
+    The table being updated.
+
+ADD
+    Adds a new column to the table.
+
+Phone
+    Name of the new column.
+
+VARCHAR(15)
+    Stores variable-length text up to 15 characters.
+
+NOT NULL
+    Ensures every record contains a phone number.
+
+============================================================
+EXAMPLE
+============================================================
+
+Before:
+
+ID   First_Name   Last_Name
+--------------------------------
+1    John         Smith
+2    Sarah        Jones
+
+After:
+
+ID   First_Name   Last_Name   Phone
+----------------------------------------
+1    John         Smith       0812345678
+2    Sarah        Jones       0823456789
+
+============================================================
+KEY TAKEAWAY
+============================================================
+
+ALTER TABLE allows database developers and data engineers
+to evolve table structures as business requirements change
+without rebuilding the entire table.
+
+POSSIBLE QUESTIONS :
+What is the purpose of ALTER TABLE?
+
+Answer:
+ALTER TABLE is a DDL command used to modify the
+structure of an existing table by adding, deleting,
+or changing columns and constraints.
+
+============================================================
+SKILLS DEMONSTRATED
+============================================================
+
+✓ Data Definition Language (DDL)
+
+✓ Database Schema Management
+
+✓ Table Structure Modification
+
+✓ Constraint Implementation
+
+✓ SQL Server Development
+
+============================================================
+*/
+
+/*
+
+
+✓ Schema Design
+
+=================================================
+============================================================
+DROP TABLE STATEMENT
+============================================================
+
+Category:
+Data Definition Language (DDL)
+
+Purpose:
+The DROP TABLE statement is used to permanently
+remove a table from a database.
+
+When a table is dropped, both its structure and
+stored data are deleted.
+
+============================================================
+BUSINESS SCENARIO
+============================================================
+
+The Persons table is no longer required because
+the business has migrated customer information
+to a new system.
+
+The old table must be removed from the database.
+
+============================================================
+SQL STATEMENT
+============================================================
+*/
+
+DROP TABLE Persons;
+
+
+
+/*
+- DROP TABLE
+    Removes an existing table.
+
+- Persons
+    The table being deleted.
+
+
+Database Tables
+
+✓ Customers
+✓ Orders
+✓ Products
+✓ Persons
+
+SQL Command:
+
+DROP TABLE Persons;
+
+After:
+
+Database Tables
+
+✓ Customers
+✓ Orders
+✓ Products
+
+✗ Persons
+
+============================================================
+IMPORTANT WARNING
+============================================================
+
+DROP TABLE permanently removes:
+
+✓ Table Structure
+✓ Rows of Data
+✓ Constraints
+✓ Relationships
+
+Once executed, recovery may not be possible
+unless a backup exists.
+
+============================================================
+KEY TAKEAWAY
+============================================================
+
+DROP TABLE completely removes a table and everything
+contained within it from the database.
+
+Use with caution in production environments.
+
+
+Question:
+What is the difference between DROP and TRUNCATE?
+
+Answer:
+
+DROP TABLE:
+- Deletes the table structure
+- Deletes all data
+- Removes the table completely
+
+TRUNCATE TABLE:
+- Deletes only the data
+- Keeps the table structure
+- Table remains available for use
+
+============================================================
+SKILLS DEMONSTRATED
+============================================================
+
+✓ Data Definition Language (DDL)
+
+✓ Database Administration Fundamentals
+
+✓ Database Object Management
+
+✓ Schema Maintenance
+
+✓ SQL Server Development
+
+============================================================
+MEMORY TRICK
+============================================================
+
+CREATE = Build
+
+ALTER = Change
+
+DROP = Destroy
+
+TRUNCATE = Empty
+
+
+===========
+*/
